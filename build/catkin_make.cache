@@ -1,0 +1,2 @@
+darknet:dingyue
+-DCATKIN_DEVEL_PREFIX=/home/cyh/yolov/devel -DCMAKE_INSTALL_PREFIX=/home/cyh/yolov/install -G Unix Makefiles

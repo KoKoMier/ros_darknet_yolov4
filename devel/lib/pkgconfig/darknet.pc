@@ -1,0 +1,8 @@
+prefix=/home/cyh/yolov/devel
+
+Name: darknet
+Description: Description of darknet
+Version: 0.0.0
+Cflags: -I/home/cyh/yolov/devel/include
+Libs: -L${prefix}/lib 
+Requires: cv_bridge rospy std_msgs message_runtime

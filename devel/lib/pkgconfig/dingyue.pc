@@ -1,0 +1,8 @@
+prefix=/home/cyh/yolov/devel
+
+Name: dingyue
+Description: Description of dingyue
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

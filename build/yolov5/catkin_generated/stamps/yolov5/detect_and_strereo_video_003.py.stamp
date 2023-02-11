@@ -1,0 +1,40 @@
+import cv2
+import os
+
+#cap = cv2.VideoCapture(4 + cv2.CAP_DSHOW) # win10系统
+cap = cv2.VideoCapture(1)   # ubuntu系统
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 2560 )
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+img_save = './test_img_save/'
+left_right_frame_save = './left_right_frame/'
+if not os.path.exists(img_save):
+    os.makedirs(img_save)
+if not os.path.exists(left_right_frame_save):
+    os.makedirs(left_right_frame_save)
+
+i = 0
+while(cap.isOpened()):
+    # ret返回布尔值
+    ret, frame = cap.read()
+    lefe_frame = frame[:, 0:1280, :]
+    right_frame = frame[:, 1280:, :]
+
+    cv2.imwrite(img_save+ 'img_%d.png'%i, frame)
+    cv2.imwrite(left_right_frame_save+ '%d_left.png'%i, lefe_frame)
+    cv2.imwrite(left_right_frame_save+ '%d_right.png'%i, right_frame)
+    # # 展示读取到的视频矩阵
+    cv2.imshow('image', frame)
+    cv2.imshow('left_frame', lefe_frame )
+    cv2.imshow('right_frame', right_frame)
+    # 键盘等待
+    k = cv2.waitKey(1)
+    # # q键退出
+    if k & 0xff == ord('q'):
+         break
+
+    i+=1
+# 释放资源
+cap.release()
+# 关闭窗口
+cv2.destroyAllWindows()
