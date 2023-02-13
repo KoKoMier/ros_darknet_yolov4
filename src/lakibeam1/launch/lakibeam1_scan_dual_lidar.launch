@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node name="richbeam_lidar_node0" pkg="lakibeam1" type="lakibeam1_scan_node" output="screen"><!--lidar0设置-->
+    <remap from="/richbeam_lidar/scan0" to="/scan0" />
+        <param name="frame_id" type="string" value="laser"/><!--frame_id设置-->
+        <param name="output_topic" type="string" value="scan0" /><!--topic设置-->
+        <param name="inverted" type="bool" value="false"/><!--配置是否倒装,true倒装-->
+        <param name="hostip" type="string" value="0.0.0.0"/><!--配置本机监听地址，0.0.0.0表示监听全部-->
+        <param name="port" type="string" value="2368"/><!--配置本机监听端口-->
+        <param name="angle_offset" type="int" value="0"/><!--配置点云旋转角度，可以是负数-->
+    </node>
+
+    <node name="richbeam_lidar_node1" pkg="lakibeam1" type="lakibeam1_scan_node" output="screen"><!--lidar1设置-->
+    <remap from="/richbeam_lidar/scan1" to="/scan1" />
+        <param name="frame_id" type="string" value="laser"/><!--frame_id设置-->
+        <param name="output_topic" type="string" value="scan1" /><!--topic设置-->
+        <param name="inverted" type="bool" value="false"/><!--配置是否倒装,true倒装-->
+        <param name="hostip" type="string" value="0.0.0.0"/><!--配置本机监听地址，0.0.0.0表示监听全部-->
+        <param name="port" type="string" value="2369"/><!--配置本机监听端口-->
+        <param name="angle_offset" type="int" value="0"/><!--配置点云旋转角度，可以是负数-->
+    </node>
+    
+</launch>
